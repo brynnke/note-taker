@@ -22,7 +22,12 @@ app.use(express.json());
 app.get('/api/notes', async (req, res) => {
     const notes = await readFileAsync('db/db.json', 'utf-8');
     res.json(JSON.parse(notes));
-})
+});
+
+app.get('/api/notes', async (req, res) =>{
+    const notes = await writeFileAsync('db/db.json', 'utf-8');
+    res.json(JSON.parse(notes));
+});
 
 app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, './public/notes.html'));
