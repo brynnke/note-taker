@@ -34,7 +34,7 @@ app.get('/*', (req, res) => {
 
 // function for creating a new note 
 
-function createADDITIONALNOTES(body, notesArray) {
+function createNewNotes(body, notesArray) {
     const newNotes = body;
     if(!Array.isArray(notesArray))
         notesArray = [];
@@ -52,16 +52,10 @@ function createADDITIONALNOTES(body, notesArray) {
     );
     return newNotes;
 }
-app.post('/api/notes', (req, res) => {
-    // array 
-    req.body.id = notes.length.toString();
 
-    if (!validateNOTES(req.body)) {
-        res.status(400).send('The note is not properly formatted.');
-    } else {
-        const notes = createNewNote(req.body, notes);
-        res.json(notes);
-    }
+app.post('/api/notes', (req, res) => {
+    const newNotes = createNewNotes(req.body, allNotes);
+    res.json(newNotes);
 });
 
 
