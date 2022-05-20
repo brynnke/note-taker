@@ -1,7 +1,9 @@
+// const
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
-const util =require('util');
+const util = require('util');
+
 
 const readFileAsync = util.promisify(fs.readFile);
 const writeFileAsync = util.promisify(fs.writeFile);
@@ -9,36 +11,61 @@ const writeFileAsync = util.promisify(fs.writeFile);
 const PORT = process.env.PORT || 3001;
 const app = express();
 
+// .use
+
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+// routes
 
 app.get('/api/notes', async (req, res) => {
     const notes = await readFileAsync('db/db.json', 'utf-8');
     res.json(JSON.parse(notes));
 })
 
-
 app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, './public/notes.html'));
 });
 
+app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/index.html'));
+});
+
+// function for creating a new note 
+
+function createADDITIONALNOTES(body, notesArray) {
+    const newNotes = body;
+    if(!Array.isArray(notesArray))
+        notesArray = [];
+    
+        if (notesArray.length === 0)
+            notesArray.push(0);
+
+    body.id = notesArray[0];
+    notesArray[0] ++;
+
+    notesArray.push(newNotes);
+    fs.writeFileSync(
+        path.join(__dirname, './db/db.json'),
+        JSON.stringify(notesArray, null, 2)
+    );
+    return newNotes;
+}
 app.post('/api/notes', (req, res) => {
     // array 
     req.body.id = notes.length.toString();
-  
-    if (!validateNOTES(req.body)) {
-      res.status(400).send('The note is not properly formatted.');
-    } else {
-      const notes = createNewNote(req.body, notes);
-      res.json(notes);
-    }
-  });
 
-app.get('/*', (req, res) => {
-res.sendFile(path.join(__dirname, './public/index.html'));
+    if (!validateNOTES(req.body)) {
+        res.status(400).send('The note is not properly formatted.');
+    } else {
+        const notes = createNewNote(req.body, notes);
+        res.json(notes);
+    }
 });
+
+
 
 app.listen(PORT, () => {
     console.log(`API server now on port ${PORT}!`);
-  });
+});
