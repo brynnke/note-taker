@@ -58,6 +58,24 @@ app.post('/api/notes', (req, res) => {
     res.json(newNotes);
 });
 
+function deleteNotes(id, notesArray) {
+    for (let i = 0; i < notesArray.length; i++){
+        let note = notesArray [i];
+
+        if(note.id == id) {
+            notesArray.splice(i,1);
+            fs.writeFileAsync(
+                path.join(__dirname, './db/db.json'),
+                JSON.stringify(notesArray, null, 2)
+            );
+        }
+    }
+}
+
+app.delete('/api/notes/:id', (req,res) => {
+    deleteNotes(req.params.id, allNotes);
+    res.json(true);
+});
 
 
 app.listen(PORT, () => {
