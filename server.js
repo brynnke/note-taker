@@ -23,15 +23,15 @@ app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, './public/notes.html'));
 });
 
-app.post('/api/animals', (req, res) => {
+app.post('/api/notes', (req, res) => {
     // array 
-    req.body.id = animals.length.toString();
+    req.body.id = notes.length.toString();
   
-    if (!validateAnimal(req.body)) {
-      res.status(400).send('The animal is not properly formatted.');
+    if (!validateNOTES(req.body)) {
+      res.status(400).send('The note is not properly formatted.');
     } else {
-      const animal = createNewAnimal(req.body, animals);
-      res.json(animal);
+      const notes = createNewNote(req.body, notes);
+      res.json(notes);
     }
   });
 
