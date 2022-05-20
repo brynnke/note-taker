@@ -10,6 +10,7 @@ const writeFileAsync = util.promisify(fs.writeFile);
 
 const PORT = process.env.PORT || 3001;
 const app = express();
+const allNotes = require('./db/db.json');
 
 // .use
 

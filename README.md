@@ -24,4 +24,17 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 [](https://courses.bootcampspot.com/courses/1207/files/1692158/preview)
 
 ## purpose
-This is to practice using backend coding programs for 
+This is to practice using backend coding programs for bootcamp
+
+## objective
+An application used to save notes, write notes, delete notes. This application was made using express backend and save note data from a JSON file.
+
+## deployed application
+
+
+## Technologies/programs used
+~ JAVASCRIPT
+~ NODE.JS
+~ EXPRESS.JS
+~ NPM MODULES
+~ HEROKU (FOR DEPLOYMENT)
