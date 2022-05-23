@@ -20,7 +20,7 @@ THEN that note appears in the right-hand column
 WHEN I click on the Write icon in the navigation at the top of the page
 THEN I am presented with empty fields to enter a new note title and the note’s text in the right-hand column
 
-## deployed git hub
+## deployed git hub link 
 https://brynnke.github.io/note-taker/
 
 ## Mock-up
@@ -33,14 +33,17 @@ The purpose of this application is to take notes. This application will store no
 ## objective
 An application used to save notes, write notes, delete notes. This application was made using express backend and save note data from a JSON file.
 
-## deployed application
+## deployed application (screenshots)
 https://github.com/brynnke/note-taker/blob/main/images/Screen%20Shot%202022-05-22%20at%209.52.16%20PM.png
 https://github.com/brynnke/note-taker/blob/main/images/Screen%20Shot%202022-05-22%20at%209.52.05%20PM.png
 (heroku deploy localhost5000)
 
 https://github.com/brynnke/note-taker/blob/main/images/Screen%20Shot%202022-05-22%20at%209.52.42%20PM.png
 (deployed on my server of port 3001)
-
+## deplyed links
+http://localhost:5000/
+http://localhost:3001/
+localhost:3001
 
 ## Technologies/programs used
 ~ JAVASCRIPT
