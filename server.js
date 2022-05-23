@@ -6,7 +6,7 @@ const util = require('util');
 
 
 const readFileAsync = util.promisify(fs.readFile);
-const writeFileAsync = util.promisify(fs.writeFile);
+const writeFileSync = util.promisify(fs.writeFile);
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -26,7 +26,7 @@ app.get('/api/notes', async (req, res) => {
 });
 
 app.get('/api/notes', async (req, res) =>{
-    const notes = await writeFileAsync('db/db.json', 'utf-8');
+    const notes = await writeFileSync('db/db.json', 'utf-8');
     res.json(JSON.parse(notes));
 });
 
@@ -70,7 +70,7 @@ function deleteNotes(id, notesArray) {
 
         if(note.id == id) {
             notesArray.splice(i,1);
-            fs.writeFileAsync(
+            fs.writeFileSync(
                 path.join(__dirname, './db/db.json'),
                 JSON.stringify(notesArray, null, 2)
             );
