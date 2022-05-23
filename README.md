@@ -20,11 +20,15 @@ THEN that note appears in the right-hand column
 WHEN I click on the Write icon in the navigation at the top of the page
 THEN I am presented with empty fields to enter a new note title and the note’s text in the right-hand column
 
+## deployed git hub
+https://brynnke.github.io/note-taker/
+
 ## Mock-up
-[](https://courses.bootcampspot.com/courses/1207/files/1692158/preview)
+
+https://github.com/brynnke/note-taker/blob/main/images/Screen%20Shot%202022-05-22%20at%209.59.05%20PM.png
 
 ## purpose
-This is to practice using backend coding programs for bootcamp
+The purpose of this application is to take notes. This application will store notes you write. 
 
 ## objective
 An application used to save notes, write notes, delete notes. This application was made using express backend and save note data from a JSON file.
