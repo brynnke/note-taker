@@ -30,6 +30,12 @@ This is to practice using backend coding programs for bootcamp
 An application used to save notes, write notes, delete notes. This application was made using express backend and save note data from a JSON file.
 
 ## deployed application
+https://github.com/brynnke/note-taker/blob/main/images/Screen%20Shot%202022-05-22%20at%209.52.16%20PM.png
+https://github.com/brynnke/note-taker/blob/main/images/Screen%20Shot%202022-05-22%20at%209.52.05%20PM.png
+(heroku deploy localhost5000)
+
+https://github.com/brynnke/note-taker/blob/main/images/Screen%20Shot%202022-05-22%20at%209.52.42%20PM.png
+(deployed on my server of port 3001)
 
 
 ## Technologies/programs used
